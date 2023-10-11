@@ -5,13 +5,43 @@ abstract class Failure extends Equatable {
   @override
   List<Object?> get props => [];
 }
-class ServerFailure extends Failure{
+
+class ServerFailure extends Failure {
   @override
-  // TODO: implement errorMessage
-  String get errorMessage => throw UnimplementedError();
+  final String errorMessage;
+  ServerFailure({this.errorMessage = 'Server failure'});
 }
-class CacheFailure extends Failure{
+
+class CacheFailure extends Failure {
   @override
-  // TODO: implement errorMessage
-  String get errorMessage => throw UnimplementedError();
+  final String errorMessage;
+  CacheFailure({this.errorMessage = 'Cache failure'});
+}
+
+class NetworkFailure extends Failure {
+  @override
+  final String errorMessage;
+  NetworkFailure({this.errorMessage = 'No internet connection'});
+}
+
+class UnauthorizedRequestFailure extends Failure {
+  @override
+  final String errorMessage;
+
+  UnauthorizedRequestFailure({this.errorMessage = 'User not authenticated'});
+}
+
+class AnonymousFailure extends Failure {
+  @override
+  final String errorMessage;
+  AnonymousFailure({this.errorMessage = 'Unknown error happened'});
+}
+
+class SignInWithGoogleFailure extends Failure {
+  @override
+  final String errorMessage;
+
+  SignInWithGoogleFailure({
+    this.errorMessage = 'Sign In With Google Failed',
+  });
 }
